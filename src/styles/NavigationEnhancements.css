@@ -1,0 +1,361 @@
+/* ============================================================
+   PASO 6 — NAVEGACIÓN ORIENTADA A RECRUITERS
+
+   Objetivos:
+   - Conservar ArcMenu como identidad principal.
+   - Proyectos queda seleccionado al entrar.
+   - Acceso inmediato a Proyectos / GitHub / Contacto.
+   - Navegación directa entre Sobre mí / Proyectos / Contacto
+     sin tener que volver siempre al menú principal.
+   ============================================================ */
+
+/* HOME HEADER ------------------------------------------------ */
+
+.home__header.home__header--recruiter {
+  height: 68px;
+  padding: 0 24px;
+
+  grid-template-columns:
+    minmax(190px, 1fr)
+    auto
+    minmax(120px, 1fr);
+
+  gap: 24px;
+}
+
+.home-header-brand {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  justify-self: start;
+}
+
+.home-header-brand span {
+  color: var(--text);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+
+.home-header-brand strong {
+  padding-left: 12px;
+
+  border-left: 1px solid var(--line);
+
+  color: var(--quiet);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .11em;
+  white-space: nowrap;
+}
+
+.home-header-quick {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  justify-self: center;
+}
+
+.home-header-quick button,
+.home-header-quick a {
+  height: 100%;
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border: 0;
+  border-left: 1px solid var(--line-soft);
+
+  background: transparent;
+  color: var(--muted);
+
+  font: inherit;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition:
+    color .16s ease,
+    background .16s ease;
+}
+
+.home-header-quick > :last-child {
+  border-right: 1px solid var(--line-soft);
+}
+
+.home-header-quick button:hover,
+.home-header-quick a:hover {
+  background:
+    color-mix(
+      in srgb,
+      var(--text) 4%,
+      transparent
+    );
+
+  color: var(--text);
+}
+
+.home__header.home__header--recruiter
+.theme-button {
+  justify-self: end;
+}
+
+/* SECTION HEADER -------------------------------------------- */
+
+.section-shell__header.section-shell__header--recruiter {
+  height: 68px;
+  padding: 0 24px;
+
+  grid-template-columns:
+    minmax(92px, 1fr)
+    auto
+    auto
+    minmax(120px, 1fr);
+
+  gap: 22px;
+}
+
+.section-shell-quick {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  justify-self: center;
+}
+
+.section-shell-quick button {
+  position: relative;
+
+  height: 100%;
+  padding: 0 16px;
+
+  border: 0;
+  border-left: 1px solid var(--line-soft);
+
+  background: transparent;
+  color: var(--quiet);
+
+  font: inherit;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .09em;
+
+  cursor: pointer;
+}
+
+.section-shell-quick button:last-child {
+  border-right: 1px solid var(--line-soft);
+}
+
+.section-shell-quick button::after {
+  content: '';
+
+  position: absolute;
+  right: 16px;
+  bottom: 13px;
+  left: 16px;
+
+  height: 1px;
+
+  background: var(--accent);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .16s ease;
+}
+
+.section-shell-quick button:hover,
+.section-shell-quick button.is-active {
+  color: var(--text);
+}
+
+.section-shell-quick button.is-active::after {
+  transform: scaleX(1);
+}
+
+.section-shell-current {
+  justify-self: center;
+
+  color: var(--quiet);
+  font-size: 8px !important;
+  font-weight: 600;
+  letter-spacing: .11em !important;
+  white-space: nowrap;
+}
+
+.section-shell__header--recruiter
+.shell-control--theme {
+  justify-self: end;
+}
+
+/* Evita que reglas globales antiguas de SectionShell
+   sobrescriban el estilo de los accesos rápidos. */
+
+.section-shell__header--recruiter
+.section-shell-quick button {
+  min-height: 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.section-shell__header--recruiter
+.section-shell-quick button:hover {
+  background: transparent;
+  color: var(--text);
+}
+
+/* DESKTOP MEDIO --------------------------------------------- */
+
+@media (max-width: 1180px) {
+  .home-header-brand strong {
+    display: none;
+  }
+
+  .home-header-quick button,
+  .home-header-quick a {
+    padding: 0 13px;
+    font-size: 8px;
+  }
+
+  .section-shell__header.section-shell__header--recruiter {
+    gap: 12px;
+  }
+
+  .section-shell-quick button {
+    padding: 0 11px;
+    font-size: 8px;
+  }
+
+  .section-shell-current {
+    display: none;
+  }
+
+  .section-shell__header.section-shell__header--recruiter {
+    grid-template-columns:
+      minmax(92px, 1fr)
+      auto
+      minmax(120px, 1fr);
+  }
+}
+
+/* MOBILE ---------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .home__header.home__header--recruiter {
+    height: 62px;
+    padding: 0 12px;
+
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+
+  .home-header-brand span {
+    font-size: 8px;
+  }
+
+  .home-header-brand strong {
+    display: none;
+  }
+
+  .home-header-quick {
+    display: none;
+  }
+
+  .home__header.home__header--recruiter
+  .theme-button {
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 8px;
+  }
+
+  .section-shell__header.section-shell__header--recruiter {
+    height: 62px;
+    padding: 0 10px;
+
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+  }
+
+  .section-shell-current {
+    display: none;
+  }
+
+  .section-shell-quick {
+    justify-self: stretch;
+    justify-content: center;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .section-shell-quick::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-shell-quick button {
+    flex: 0 0 auto;
+
+    padding: 0 9px;
+
+    font-size: 7px;
+    letter-spacing: .07em;
+  }
+
+  .section-shell-quick button::after {
+    right: 9px;
+    left: 9px;
+    bottom: 9px;
+  }
+
+  .section-shell__header--recruiter
+  .shell-control {
+    min-height: 38px !important;
+    padding: 0 8px !important;
+
+    font-size: 7px !important;
+    white-space: nowrap;
+  }
+
+  .section-shell__header--recruiter
+  .shell-control--theme {
+    max-width: 74px;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 430px) {
+  .section-shell-quick button {
+    padding: 0 7px;
+    font-size: 6.5px;
+  }
+
+  .section-shell__header--recruiter
+  .shell-control {
+    padding: 0 7px !important;
+  }
+}
+
+/* REDUCED MOTION -------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-header-quick button,
+  .home-header-quick a,
+  .section-shell-quick button::after {
+    transition: none;
+  }
+}
+
+.reduce-motion
+.section-shell-quick button::after {
+  transition: none;
+}

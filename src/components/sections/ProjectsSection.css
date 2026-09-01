@@ -1,0 +1,486 @@
+/* ============================================================
+   PROJECTS / TECHNICAL CASE STUDIES
+   Se apoya en los estilos globales existentes del portfolio.
+   Este archivo agrega la capa específica de proyectos.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   LIVE PREVIEW
+------------------------------------------------------------ */
+
+.project-browser__viewport--live {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.project-live-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.project-preview-fallback {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 18px;
+
+  background: var(--surface);
+}
+
+.project-preview-fallback span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--quiet);
+}
+
+.project-preview-fallback a {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 46px);
+  line-height: 1;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+   STICKY PROOF
+------------------------------------------------------------ */
+
+.project-sticky-proof {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: .6fr .6fr 1fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-sticky-proof > div {
+  min-width: 0;
+  padding: 14px 16px 15px 0;
+}
+
+.project-sticky-proof > div + div {
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+}
+
+.project-sticky-proof span {
+  display: block;
+  margin-bottom: 6px;
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-sticky-proof strong {
+  display: block;
+
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   TITLE
+------------------------------------------------------------ */
+
+.project-case-title__eyebrow {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.project-case-title__eyebrow span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-case-title > p {
+  max-width: 760px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.project-copy__meta--case {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+}
+
+.project-copy__meta--case > span {
+  padding-top: 10px;
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-copy__meta--case > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-copy__meta--case > div > span {
+  min-height: 36px;
+  padding: 0 12px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid var(--line);
+
+  font-size: 10px;
+  line-height: 1;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   LINKS
+------------------------------------------------------------ */
+
+.project-case-links {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-case-links a {
+  min-height: 88px;
+  padding: 18px 18px 18px 0;
+
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+
+  color: var(--text);
+  text-decoration: none;
+}
+
+.project-case-links a + a {
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+}
+
+.project-case-links span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-case-links strong {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+.project-case-links i {
+  font-style: normal;
+  font-size: 18px;
+}
+
+.project-case-links a:hover strong {
+  color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   PROBLEM / SOLUTION / ROLE
+------------------------------------------------------------ */
+
+.project-case-block > p {
+  max-width: 780px;
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+/* ------------------------------------------------------------
+   TECHNICAL SECTION
+------------------------------------------------------------ */
+
+.project-case-technical__lead {
+  max-width: 800px;
+  margin-bottom: 48px !important;
+
+  font-size: 19px !important;
+  line-height: 1.7 !important;
+}
+
+.project-architecture {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.project-architecture > div {
+  min-height: 104px;
+  padding: 20px 22px 20px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.project-architecture > div:nth-child(even) {
+  padding-left: 22px;
+  border-left: 1px solid var(--line);
+}
+
+.project-architecture span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-architecture strong {
+  max-width: 340px;
+
+  font-family: var(--font-display);
+  font-size: clamp(19px, 2vw, 28px);
+  line-height: 1.12;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+/* ------------------------------------------------------------
+   EVIDENCE
+------------------------------------------------------------ */
+
+.project-case-evidence__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.project-case-evidence__head > span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-highlights--case {
+  margin-top: 42px;
+}
+
+.project-highlights--case > div {
+  min-height: 74px;
+  padding: 17px 0;
+
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.project-highlights--case > div:first-child {
+  border-top: 1px solid var(--line-soft);
+}
+
+.project-highlights--case > div > span {
+  padding-top: 2px;
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--quiet);
+}
+
+.project-highlights--case p {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.58;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   TABLET
+------------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .project-sticky-proof {
+    grid-template-columns: 1fr;
+  }
+
+  .project-sticky-proof > div {
+    padding: 12px 0;
+  }
+
+  .project-sticky-proof > div + div {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .project-case-links {
+    grid-template-columns: 1fr;
+  }
+
+  .project-case-links a + a {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* ------------------------------------------------------------
+   MOBILE
+------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+  .project-browser__viewport--live {
+    min-height: 0;
+  }
+
+  .project-live-frame {
+    min-width: 100%;
+  }
+
+  .project-sticky-proof {
+    margin-top: 12px;
+  }
+
+  .project-case-title__eyebrow {
+    margin-bottom: 18px;
+  }
+
+  .project-case-title > p,
+  .project-case-block > p,
+  .project-case-technical__lead {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+
+  .project-copy__meta--case {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .project-copy__meta--case > span {
+    padding-top: 0;
+  }
+
+  .project-case-links {
+    margin-top: 34px;
+  }
+
+  .project-case-links a {
+    min-height: 76px;
+    grid-template-columns: 50px minmax(0, 1fr) auto;
+  }
+
+  .project-architecture {
+    grid-template-columns: 1fr;
+  }
+
+  .project-architecture > div,
+  .project-architecture > div:nth-child(even) {
+    min-height: 86px;
+    padding: 17px 0;
+    border-left: 0;
+  }
+
+  .project-architecture strong {
+    font-size: 20px;
+  }
+
+  .project-highlights--case p {
+    font-size: 15px;
+  }
+}
+
+
+/* ============================================================
+   PASO 4 / EVIDENCIA VERIFICABLE
+   ============================================================ */
+
+.project-case-links a > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.project-case-links small {
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-evidence-status {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-evidence-status > div {
+  min-width: 110px;
+  padding: 12px 16px 12px 0;
+}
+
+.project-evidence-status > div + div {
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+}
+
+.project-evidence-status span {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  color: var(--quiet);
+}
+
+.project-evidence-status strong {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+@media (max-width: 760px) {
+  .project-evidence-status > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .project-case-links small {
+    font-size: 7px;
+  }
+}

@@ -1,0 +1,250 @@
+/* ============================================================
+   ARC MENU / OPTION WHEEL
+   Ajustado para evitar cortes en labels largos y separar
+   completamente el texto de ayuda del recorrido del menú.
+   ============================================================ */
+
+.arc-wheel-shell {
+  position: relative;
+  transform: translateX(-10px);
+
+  width: 100%;
+  height: calc(100vh - 88px);
+  min-height: 650px;
+  max-height: 900px;
+
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------
+   WHEEL
+------------------------------------------------------------ */
+.arc-wheel {
+  --arc-inset: clamp(70px, 8vw, 110px);
+
+  position: relative;
+  width: calc(100% - 34px);
+  height: 100%;
+
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  outline: none;
+}
+
+.arc-wheel:focus-visible {
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
+}
+
+.arc-wheel.is-dragging {
+  cursor: grabbing;
+}
+
+/* ------------------------------------------------------------
+   ITEMS
+------------------------------------------------------------ */
+.arc-wheel__item {
+  position: absolute;
+  z-index: 1;
+
+  top: 50%;
+  left: var(--arc-inset);
+
+  width: max-content;
+  max-width: calc(100% - var(--arc-inset) - 18px);
+  min-height: 68px;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  display: grid;
+  grid-template-columns: 38px auto;
+  align-items: center;
+  gap: 10px;
+
+  text-align: left;
+  transform-origin: left center;
+  cursor: pointer;
+
+  color: var(--muted);
+  will-change: transform, opacity;
+}
+
+.arc-wheel__item strong {
+  display: block;
+  white-space: nowrap;
+
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.7vw, 27px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -.04em;
+
+  color: color-mix(
+    in srgb,
+    var(--text) calc(var(--arc-active, 0) * 100%),
+    var(--muted)
+  );
+
+  transition:
+    font-size .16s ease,
+    font-weight .16s ease;
+}
+
+.arc-wheel__index {
+  display: block;
+
+  font-family: var(--font-body);
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: .14em;
+
+  color: color-mix(
+    in srgb,
+    var(--text) calc(var(--arc-active, 0) * 100%),
+    var(--quiet)
+  );
+}
+
+.arc-wheel__item.is-selected {
+  z-index: 2;
+}
+
+.arc-wheel__item.is-selected strong {
+  font-size: clamp(34px, 3vw, 48px);
+  font-weight: 500;
+}
+
+/*
+  Labels largos, por ejemplo "PRÓXIMOS PROYECTOS".
+  Solo se reduce el tamaño cuando llegan al centro.
+  Así no se corta la última letra ni invade la guía vertical.
+*/
+.arc-wheel__item.is-selected.is-long-label strong {
+  font-size: clamp(30px, 2.45vw, 40px);
+  letter-spacing: -.05em;
+}
+
+/* ------------------------------------------------------------
+   AYUDA VERTICAL
+   Está en un carril propio de 28px a la derecha.
+------------------------------------------------------------ */
+.arc-wheel__help {
+  position: absolute;
+  z-index: 4;
+
+  top: 50%;
+  right: 4px;
+
+  margin: 0;
+  transform: translateY(-50%);
+
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  pointer-events: none;
+
+  font-family: var(--font-body);
+  font-size: 7px;
+  line-height: 1;
+  letter-spacing: .12em;
+  color: var(--quiet);
+}
+
+/* ------------------------------------------------------------
+   TABLET
+------------------------------------------------------------ */
+@media (max-width: 1100px) {
+  .arc-wheel-shell {
+    height: calc(100vh - 80px);
+    min-height: 610px;
+  }
+
+  .arc-wheel {
+    --arc-inset: clamp(60px, 9vw, 95px);
+    width: calc(100% - 30px);
+  }
+
+  .arc-wheel__item.is-selected strong {
+    font-size: clamp(31px, 3.8vw, 44px);
+  }
+
+  .arc-wheel__item.is-selected.is-long-label strong {
+    font-size: clamp(27px, 3.1vw, 36px);
+  }
+}
+
+/* ------------------------------------------------------------
+   MOBILE
+------------------------------------------------------------ */
+@media (max-width: 760px) {
+  .arc-wheel-shell {
+    width: 100%;
+    height: min(70vh, 570px);
+    min-height: 470px;
+    max-height: 570px;
+    transform: none;
+  }
+
+  .arc-wheel {
+    --arc-inset: clamp(42px, 16vw, 72px);
+    width: calc(100% - 24px);
+  }
+
+  .arc-wheel__item {
+    max-width: calc(100% - var(--arc-inset) - 14px);
+    min-height: 58px;
+    grid-template-columns: 30px auto;
+    gap: 7px;
+  }
+
+  .arc-wheel__item strong {
+    font-size: clamp(16px, 4.7vw, 22px);
+  }
+
+  .arc-wheel__item.is-selected strong {
+    font-size: clamp(28px, 8.2vw, 38px);
+  }
+
+  .arc-wheel__item.is-selected.is-long-label strong {
+    font-size: clamp(22px, 6.4vw, 30px);
+  }
+
+  .arc-wheel__help {
+    right: 2px;
+    font-size: 6px;
+    letter-spacing: .1em;
+  }
+}
+
+/* Pantallas móviles muy angostas */
+@media (max-width: 420px) {
+  .arc-wheel {
+    --arc-inset: 38px;
+  }
+
+  .arc-wheel__item {
+    grid-template-columns: 26px auto;
+  }
+
+  .arc-wheel__item strong {
+    font-size: 15px;
+  }
+
+  .arc-wheel__item.is-selected strong {
+    font-size: clamp(25px, 8vw, 33px);
+  }
+
+  .arc-wheel__item.is-selected.is-long-label strong {
+    font-size: clamp(20px, 6vw, 26px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arc-wheel__item strong {
+    transition: none;
+  }
+}
