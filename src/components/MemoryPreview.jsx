@@ -7,11 +7,11 @@ function MemoryScene({ id }) {
         </span>
 
         <h2>
-          BUILD
+          CREAR
           <br />
-          DESIGN
+          DISEÑAR
           <br />
-          SHIP.
+          LANZAR.
         </h2>
 
         <div className="memory-lines">
@@ -29,20 +29,20 @@ function MemoryScene({ id }) {
       <div className="memory-scene memory-scene--projects">
         <div className="memory-sitebar">
           <span>N</span>
-          <span>WORK / SELECTED</span>
+          <span>TRABAJO / SELECCIONADO</span>
         </div>
 
         <div className="memory-project-columns">
           <div>
             <small>01</small>
-            <strong>LIVE</strong>
-            <small>WEB / PRODUCT</small>
+            <strong>WEB</strong>
+            <small>PRODUCTO / INTERFAZ</small>
           </div>
 
           <div>
             <small>02</small>
-            <strong>DATA</strong>
-            <small>AUTH / SYSTEMS</small>
+            <strong>DATOS</strong>
+            <small>AUTENTICACIÓN / SISTEMAS</small>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ function MemoryScene({ id }) {
     return (
       <div className="memory-scene memory-scene--lab">
         <div className="memory-lab__top">
-          <span>LAB / PLAYGROUND</span>
+          <span>LABORATORIO / PRUEBAS</span>
           <span>03</span>
         </div>
 
@@ -62,17 +62,17 @@ function MemoryScene({ id }) {
           <i className="memory-lab__cross memory-lab__cross--b" />
 
           <div className="memory-lab__window memory-lab__window--a">
-            <small>01 / FIELD</small>
-            <strong>MOVE</strong>
+            <small>01 / CAMPO</small>
+            <strong>MOVER</strong>
           </div>
 
           <div className="memory-lab__window memory-lab__window--b">
-            <small>02 / TYPE</small>
-            <strong>TEST</strong>
+            <small>02 / TIPO</small>
+            <strong>PROBAR</strong>
           </div>
 
           <div className="memory-lab__window memory-lab__window--c">
-            <small>03 / MOTION</small>
+            <small>03 / MOVIMIENTO</small>
 
             <span>
               <i />
@@ -89,10 +89,11 @@ function MemoryScene({ id }) {
   if (id === 'services') {
     return (
       <div className="memory-scene memory-scene--services">
-        <span>SERVICES</span>
+        <span>SERVICIOS</span>
+
         <strong>WEB</strong>
-        <strong>SYSTEMS</strong>
-        <strong>SUPPORT</strong>
+        <strong>SISTEMAS</strong>
+        <strong>SOPORTE</strong>
       </div>
     )
   }
@@ -100,10 +101,10 @@ function MemoryScene({ id }) {
   if (id === 'contact') {
     return (
       <div className="memory-scene memory-scene--contact">
-        <span>AVAILABLE / CONTACT</span>
+        <span>DISPONIBLE / CONTACTO</span>
 
         <h2>
-          MAIL
+          EMAIL
           <br />
           GITHUB
           <br />
@@ -137,7 +138,6 @@ export default function MemoryPreview({
       <div className="memory-preview__wash" />
 
       <div className="memory-preview__caption">
-        <span>{item.index} / PREVIEW</span>
         <strong>{item.label}</strong>
       </div>
     </button>
